@@ -79,5 +79,5 @@ REPOSITORY_ROOT = os.path.dirname(BASE_DIR)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(REPOSITORY_ROOT, 'static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(REPOSITORY_ROOT, "media")
+MEDIA_URL = 'ProjectDjango/media/'
+MEDIA_ROOT = os.path.join(REPOSITORY_ROOT, "ProjectDjango/media")
