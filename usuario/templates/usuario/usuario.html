@@ -1,0 +1,41 @@
+<!--Llamamos a header y asignamos valor a title-->
+{% extends 'usuario/header.html' %}
+{% block title %}Usuarios{% endblock %}
+{% block content %}
+<form class="text-center border border-light p-2">
+    <h1>Usuarios</h1>
+    <div class="form-row mb-2">
+        <div class="col">
+            <input id="entradafilter" type="text" class="form-control" placeholder="Filtrado">
+        </div>
+        <div>
+            <a href="#" class="btn btn-success">Agregar Usuario</a>
+        </div>
+    </div>
+</form>
+<!-- ADD TASK FORM -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>RUN</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody class="contenidobusqueda">
+        {% for l in usuario  %}
+          <tr>
+            <td>{{l.rut}}</td>
+            <td>{{l.nombre}}</td>
+            <td>{{l.correo}}</td>
+            <td>{{l.rol}}</td>
+            <td>
+                <a href="#">wea</a>
+            </td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

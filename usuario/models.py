@@ -28,7 +28,7 @@ class Estado(models.Model):
 
 
 class Mascota(models.Model):
-    foto = models.ImageField(upload_to = 'tmp')
+    foto = models.ImageField(upload_to="tmp")
     nombre = models.CharField(max_length=200)
     raza = models.CharField(max_length=200)
     descripcion = models.TextField()
