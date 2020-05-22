@@ -1,11 +1,28 @@
 <!--Llamamos a header y asignamos valor a title-->
 {% extends 'usuario/header.html' %}
 {% block title %}Mascotas{% endblock %}
-
-<!--Contenido-->
 {% block content %}
-<form class="text-center border border-light p-4">
+
+
+<!--FILTRO-->
+{% load static %}
+<script type="text/javascript" src="{% static 'usuario/app.js' %}"></script>
+
+<form class="text-center border border-light p-2">
   <h1>Mascota</h1>
+  <div class="form-row mb-2">
+      <div class="col">
+          <input id="entradafilter" type="text" class="form-control" placeholder="Filtrado">
+      </div>
+      <div>
+          <a href="{% url 'mascota_agregar' %}" class="btn btn-success">Agregar Mascota</a>
+      </div>
+  </div>
+</form>
+
+
+<form class="text-center border border-light p-4">
+
   {% for m in mascota  %}
   <div class="row">
     <div class="col-md-4">

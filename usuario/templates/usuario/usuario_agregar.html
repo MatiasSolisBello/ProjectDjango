@@ -1,0 +1,16 @@
+{% extends 'usuario/header.html' %}
+{% block title %}Agregar Usuarios{% endblock %}
+{% block content %}
+<!--FORMULARIO-->
+<div class="container h-50">
+    <!-- ADD TASK FORM -->
+    <div class="row h-50 justify-content-center align-items-center">
+        <!--GUARDAR-->
+        <form method="POST">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit">Crear</button>
+        </form>
+    </div><h3>{{ mensaje }}</h3>
+</div>
+{% endblock %}

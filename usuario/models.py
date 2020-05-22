@@ -18,14 +18,12 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class Estado(models.Model):
     id = models.CharField(max_length=200, primary_key=True)
     estado = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.estado
-
 
 class Mascota(models.Model):
     foto = models.ImageField(upload_to="tmp")

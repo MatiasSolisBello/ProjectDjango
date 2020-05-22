@@ -4,6 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-y__8eaj=b*)ge2207q_9taqj@k$yg%k0(eh0ubt7n)uhi4dc7'
 DEBUG = True
 ALLOWED_HOSTS = []
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',

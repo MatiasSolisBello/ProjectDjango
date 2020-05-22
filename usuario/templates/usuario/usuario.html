@@ -2,6 +2,11 @@
 {% extends 'usuario/header.html' %}
 {% block title %}Usuarios{% endblock %}
 {% block content %}
+
+<!--FILTRO-->
+{% load static %}
+<script type="text/javascript" src="{% static 'usuario/app.js' %}"></script>
+
 <form class="text-center border border-light p-2">
     <h1>Usuarios</h1>
     <div class="form-row mb-2">
@@ -9,7 +14,7 @@
             <input id="entradafilter" type="text" class="form-control" placeholder="Filtrado">
         </div>
         <div>
-            <a href="#" class="btn btn-success">Agregar Usuario</a>
+            <a href="{% url 'usuario_agregar' %}" class="btn btn-success">Agregar Usuario</a>
         </div>
     </div>
 </form>
@@ -18,7 +23,7 @@
     <thead>
         <tr>
             <th>RUN</th>
-            <th>Apellidos</th>
+            <th>Nombre Completo</th>
             <th>Correo</th>
             <th>Rol</th>
             <th>Accion</th>
@@ -32,10 +37,21 @@
             <td>{{l.correo}}</td>
             <td>{{l.rol}}</td>
             <td>
-                <a href="#">wea</a>
+                <a href="{% url 'usuario_actualizar' l.id %}" class="btn btn-secondary">
+                    <i class="fas fa-marker"></i>
+                    <br>
+                <a href="{% url 'usuario_eliminar' l.id %}" class="btn btn-danger">
+                    <i class="far fa-trash-alt"></i>
             </td>
           </tr>
         {% endfor %}
     </tbody>
 </table>
+
+{% if messages %}
+    {% for m in messages %}
+    <div>{{m}}</div>
+    {% endfor %}
+{% endif %}
+
 {% endblock %}

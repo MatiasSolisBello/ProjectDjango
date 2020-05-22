@@ -1,0 +1,55 @@
+{% extends 'usuario/header.html' %}
+{% block title %}Agregar Mascota{% endblock %}
+{% block content %}
+<!--FORMULARIO-->
+<div class="container h-50">
+    <!-- ADD TASK FORM -->
+    <div class="row h-50 justify-content-center align-items-center">
+        <!--GUARDAR-->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <br>
+            <h1>Registre Mascota</h1>
+            <br>
+            <!--FOTO-->
+
+
+            <div class="form-group">
+                <input type="text" name="nombre" class="form-control" 
+                placeholder="Nombres" autofocus required>
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="raza" class="form-control" 
+                placeholder="Raza" autofocus required>
+            </div>
+
+            <div class="form-group">
+            <input type="text" name="descripcion" class="form-control" 
+                placeholder="Descripcion" autofocus required>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" id="id" name="id" required>
+                    <option value="">-- Selecciona--</option>
+                    {% for e in estado %}
+                        <option value="{{ e.id }}">{{ e.estado }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" id="rut" name="rut" required>
+                    <option value="">-- Selecciona--</option>
+                    {% for u in usuario %}
+                        <option value="{{ u.usuario }}">{{ u.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <input type="submit" name="mascota_agregar" class="btn btn-success btn-block" value="Guardar">
+            <h3>{{ mensaje }}</h3>
+        </form>
+        
+    </div>
+</div>
+{% endblock %}

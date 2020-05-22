@@ -6,8 +6,12 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('/usuario', views.usuario, name="usuario"),
-    path('/mascota', views.mascota, name="mascota"),
+    path('usuario', views.usuario, name="usuario"),
+    path('mascota', views.mascota, name="mascota"),
+    path('usuario_agregar', views.usuario_agregar, name="usuario_agregar"),
+    path('usuario_eliminar/<id>/', views.usuario_eliminar, name="usuario_eliminar"),
+    path('usuario_actualizar/<id>/', views.usuario_actualizar, name="usuario_actualizar"),
+    path('mascota_agregar', views.mascota_agregar, name="mascota_agregar"),
 ]
 
 if settings.DEBUG:
