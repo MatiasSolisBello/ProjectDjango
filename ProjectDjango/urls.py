@@ -12,6 +12,8 @@ urlpatterns = [
     path('usuario_eliminar/<id>/', views.usuario_eliminar, name="usuario_eliminar"),
     path('usuario_actualizar/<id>/', views.usuario_actualizar, name="usuario_actualizar"),
     path('mascota_agregar', views.mascota_agregar, name="mascota_agregar"),
+    path('mascota_eliminar/<id>/', views.mascota_eliminar, name="mascota_eliminar"),
+    path('mascota_actualizar/<id>/', views.mascota_actualizar, name="mascota_actualizar"),
 ]
 
 if settings.DEBUG:

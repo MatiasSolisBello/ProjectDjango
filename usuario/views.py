@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Usuario, Mascota
+from .models import Usuario, Mascota, Rol
 from django.contrib import messages
-from .forms import UsuarioForm
+from .forms import UsuarioForm, MascotaForm
 
 def index(request):
     return render(request, 'usuario/index.html')
@@ -55,6 +55,30 @@ def mascota(request):
     return render(request, 'usuario/mascota.html', var)
 
 def mascota_agregar(request):
-    #usuario = Usuario.objects.all()
-    var = {'mascota':mascota}
-    return render(request, 'mascota/mascota_agregar.html', var) 
+    if request.method == 'POST':
+        form = MascotaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('mascota')
+    else:
+        form = MascotaForm()
+    return render(request, 'usuario/mascota_agregar.html', {'form': form})
+
+def mascota_eliminar(request, id):
+    mascota = Mascota.objects.get(id=id)
+    mascota.delete()
+    mensaje ="ELIMINADO!!"
+    messages.success(request, mensaje)
+    return redirect('mascota')
+    
+def mascota_actualizar(request, id):
+    instancia = Mascota.objects.get(id=id)
+    form = MascotaForm(instance=instancia)
+    if request.method == "POST":
+        form = MascotaForm(request.POST, instance=instancia)
+        if form.is_valid():
+            instancia = form.save(commit=False)
+            instancia.save()
+            return redirect('/mascota')
+    return render(request, 'usuario/mascota_actualizar.html',{'form': form} ) 
+
