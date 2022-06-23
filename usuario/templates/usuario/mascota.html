@@ -7,52 +7,19 @@
 {% load static %}
 <script type="text/javascript" src="{% static 'usuario/app.js' %}"></script>
 <div class="container">
-<form class="text-center border border-light p-2">
-  <h1>Mascota</h1>
-  <div class="form-row mb-2">
-      <div class="col">
-          <input id="entradafilter" type="text" class="form-control" placeholder="Filtrado">
-      </div>
-      <div>
-          <a href="{% url 'mascota_agregar' %}" class="btn btn-success">Agregar Mascota</a>
-      </div>
-  </div>
-</form>
+  <form class="text-center border border-light p-2">
+    <h1>Mascota</h1>
+    <div class="form-row mb-2">
+        <div class="col">
+            <input id="entradafilter" type="text" class="form-control" placeholder="Filtrado">
+        </div>
+        <div>
+            <a href="{% url 'mascota_agregar' %}" class="btn btn-success">Agregar Mascota</a>
+        </div>
+    </div>
+  </form>
 
-<!--CONTENIDO-->
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Nombre</th>
-      <th>Raza</th>
-      <th>Descripcion</th>
-      <th>Estado</th>
-      <th>RUN</th>
-      <th>ACCION</th>
-    </tr>
-  </thead>
-  <tbody class="contenidobusqueda">
-    {% for m in mascota  %}
-    <tr>
-      <td><img class="col-9" src="{{m.foto.url}}" alt=""></td>
-      <td>{{m.nombre}}</td>
-      <td>{{m.raza}}</td>
-      <td>{{m.descripcion}}</td>
-      <td>{{m.estado}}</td>
-      <td>{{m.rut}}</td>
-      <td>
-        <a href="{% url 'mascota_actualizar' m.id %}" class="btn btn-secondary">
-          <i class="fas fa-marker"></i>
-          <br>
-        <a href="{% url 'mascota_eliminar' m.id %}" class="btn btn-danger">
-          <i class="far fa-trash-alt"></i>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  <!--CONTENIDO-->
 </div>
 {% endblock %}
 
